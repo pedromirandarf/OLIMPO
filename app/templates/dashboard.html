@@ -1,0 +1,140 @@
+{% extends 'base.html' %}
+
+
+{%block content%}
+      <div class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="card card-stats">
+                <div class="card-header card-header-warning card-header-icon">
+                  <div class="card-icon">
+                    <i class="material-icons">settings</i>
+                  </div>
+                  <p class="card-category">Projetos</p>
+                  <h3 class="card-title ">{{cont1}}</h3>
+                </div>
+                <div class="card-footer">
+                  <div class="stats">
+                    <i class="material-icons text-danger">warning</i>
+                    <a href="#home">A meta é de 12</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="card card-stats">
+                <div class="card-header card-header-success card-header-icon">
+                  <div class="card-icon">
+                    <i class="material-icons">attach_money</i>
+                  </div>
+                  <p class="card-category">Faturamento</p>
+                  <h4 class="card-title">R${{soma}}</h4>
+                </div>
+                <div class="card-footer">
+                  <div class="stats">
+                    <i class="material-icons text-danger">warning</i> Meta:R$ 14000
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="card card-stats">
+                <div class="card-header card-header-danger card-header-icon">
+                  <div class="card-icon">
+                    <i class="material-icons">group</i>
+                  </div>
+                  <p class="card-category">Membros:</p>
+                  <h3 class="card-title">{{cont}}</h3>
+                </div>
+                <div class="card-footer">
+                  <div class="stats">
+                    <i class="material-icons">local_offer</i> Trainees: 13
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="card card-stats">
+                <div class="card-header card-header-info card-header-icon">
+                  <div class="card-icon">
+                    <i class="fa fa-calendar"></i>
+                  </div>
+                  <p class="card-category">PCOS</p>
+                  <h4 class="card-title">15 pontos <br></h4>
+                </div>
+                <div class="card-footer">
+                  <div class="stats">
+                    <i class="material-icons">update</i> Just Updated
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+                <div class="card" style="width: 20rem;">
+                    <img class="card-img-top" src="{{url_for('static',filename='assets/img/missao.png')}}" alt="Card image cap">
+                    <div class="card-body">
+                        <h4><b>Missão</b></h4>
+                      <p class="card-text" style="text-align: justify">Proporcionar aos alunos da UNIFEI, vivência empresarial, capacitando os associados por projetos, além de desenvolver soluções tecnológicas para o mercado de Itabira e região.</p>
+                    </div>
+                  </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card" style="width: 20rem;">
+                    <img class="card-img-top style" src="{{url_for('static',filename='assets/img/visao.png')}}" alt="Card image cap">
+                    <div class="card-body">
+                      <h4><b>Visão</b></h4>
+                      <p class="card-text" style="text-align: justify">Até 2020, ser vista como exemplo de Empresa Júnior dentro da UNIFEI, sendo reconhecida pela qualidade e inovação na prestação de serviços tecnológicos e na auto realização de nossos clientes, causando impacto em Itabira e região. </p>
+                    </div>
+                  </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card" style="width: 20rem;">
+                    <img class="card-img-top" src="{{url_for('static',filename='assets/img/valores.png')}}" alt="Card image cap">
+                    <div class="card-body">
+                      <h4><b>Valores</b></h4>
+                      <p class="card-text" style="text-align: center">- Ética <br> - Comprometimento <br> - Qualidade <br> - Profissionalismo <br> - Sinergia <br> -Proatividade</p>
+                      
+                    </div>
+                  </div>
+          </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-12 col-md-12">
+              <div class="card" id="tabela">
+                <div class="card-header card-header-warning">
+                  <h4 class="card-title">Projetos Fechados</h4>
+                </div>
+                <div class="card-body table-responsive">
+                  <table class="table table-hover">
+                    <thead class="text-warning">
+                      <th>#</th>
+                      <th>Empresa</th>
+                      <th>Valor</th> 
+                      <th>Duracao</th> 
+                      <th>Diretoria</th>
+                      <th>Descrição</th>
+                    </thead>
+                    <tbody>
+                      {% for projt1 in projt %}
+                        <tr>
+                          <td>{{projt1.id}}</td>
+                          <td>{{projt1.empresa}}</td>
+                          <td>{{projt1.valor}}</td>
+                          <td>{{projt1.diretoria}}</td>
+                          <td>{{projt1.duracao}}</td>
+                          <td>{{projt1.content}}</td>
+                        </tr>
+                      {% endfor %}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+{%endblock%}
